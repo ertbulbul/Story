@@ -1,5 +1,7 @@
 import UIKit
 import Gemini
+import AVKit
+import AVFoundation
 
 protocol StoryCellDelegate: class {
     func snapsFinished(storyIndex: Int)
@@ -11,21 +13,23 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
    
     weak var cellDelegate: StoryCellDelegate?
     static let identifier = "cell"
-    private var profile: Profile?
-    private var storyIndex: Int?
+    private var profile: Profile!
+    private var storyIndex: Int!
     private var firstInit = true
     private var touchLocation = CGPoint(x: 0, y: 0)
     private var enteredMove = false
     private var fromStoryTransition = false
+    public var safeAreaTop: CGFloat!
    
-    lazy var view: IGPlayerView = {
-        let uiview = IGPlayerView()
+    
+    lazy var view: UIView = {
+        let uiview = UIView()
         return uiview
     }()
     
     lazy var segmentedProgressBar: SegmentedProgressBar = {
-        var progressBar = SegmentedProgressBar(numberOfSegments: 1, duration: 5)
-        progressBar.frame = CGRect(x: 15, y: 15, width: self.frame.width - 30, height: 4)
+        var progressBar = SegmentedProgressBar(numberOfSegments: 1, duration: 5, topPoint: 50)
+        progressBar.frame = CGRect(x: 15, y: 100, width: self.frame.width - 30, height: 4)
         progressBar.topColor = UIColor.white
         progressBar.bottomColor = UIColor.white.withAlphaComponent(0.25)
         progressBar.padding = 2
@@ -66,15 +70,17 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
     }
 
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
+        profile?.snapVisitedCount += 1
+    }
+    
+    public func setupLayout(safeAreaTop: CGFloat){
+        self.safeAreaTop = safeAreaTop
         setupView()
         setupAnchor()
-        profile?.snapVisitedCount += 1
         
     }
     
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -147,18 +153,17 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
     }
 
     public func configure(profile: Profile, storyIndex: Int) {
+        
         self.profile = profile
         self.storyIndex = storyIndex
         profileImageView.downloaded(from: profile.userPp!, contentMode: .scaleToFill)
         snapImageView.downloaded(from: profile.stories![profile.snapVisitedCount].url!)
         setProgressBar(numberOfSegments: profile.stories!.count, currentIndex: profile.snapVisitedCount)
-        self.bringSubviewToFront(profileImageView)
-        self.bringSubviewToFront(segmentedProgressBar)
-        
+                      
         
     }
     
-    //TODO
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         profileImageView.image = nil
@@ -167,7 +172,7 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
     
     func setProgressBar(numberOfSegments: Int, duration: Double = 5, currentIndex: Int = 0) {
         segmentedProgressBar.removeFromSuperview()
-        segmentedProgressBar = SegmentedProgressBar(numberOfSegments: numberOfSegments, duration: duration)
+        segmentedProgressBar = SegmentedProgressBar(numberOfSegments: numberOfSegments, duration: duration, topPoint: safeAreaTop)
         segmentedProgressBar.frame = CGRect(x: 15, y: 15, width: self.frame.width - 30, height: 4)
         segmentedProgressBar.topColor = UIColor.white
         segmentedProgressBar.bottomColor = UIColor.white.withAlphaComponent(0.25)
@@ -197,11 +202,11 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
         
         _ = view.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        _ = profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 50, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: Constants.profilePictureSize, heightConstant: Constants.profilePictureSize)
+        _ = profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: safeAreaTop + Constants.profilePictureSize / 2 , leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: Constants.profilePictureSize, heightConstant: Constants.profilePictureSize)
         
         _ = snapImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        _ = segmentedProgressBar.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 0)
+        _ = segmentedProgressBar.anchor(self.view.safeAreaLayoutGuide.topAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 200, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 0)
 
         
     }
@@ -217,9 +222,7 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
                 }else{
                     fromStoryTransition = false
                 }
-                
             }
-            
         }else{
             
         }
@@ -230,6 +233,7 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
         prepareForReuse()
         
     }
+    
 
 }
 

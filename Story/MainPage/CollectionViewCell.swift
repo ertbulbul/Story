@@ -5,7 +5,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     static let identifier = "cell"
     
-    private let imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.clipsToBounds = true
         myImageView.contentMode = .center
@@ -27,7 +27,9 @@ class CollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = contentView.bounds
+        
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,5 +44,7 @@ class CollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         imageView.image = nil
     }
+    
+    
     
 }

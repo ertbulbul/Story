@@ -3,17 +3,16 @@ import ObjectMapper
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private var collectionView: UICollectionView?
+    private var collectionView: UICollectionView!
     private var profilesModel: ProfilesModel?
    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 150, height: 150)
+        layout.itemSize = CGSize(width: Constants.storyPpSize, height: Constants.storyPpSize)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -31,10 +30,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         view.addSubview(myCollection)
         
-        
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
+        collectionView.setNeedsLayout()
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -62,6 +64,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
         }
     }
+    
+    
     
     func getStories() {
         

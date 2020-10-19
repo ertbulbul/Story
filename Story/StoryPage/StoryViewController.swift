@@ -55,6 +55,13 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         
     }
     
+    override func viewDidLayoutSubviews() {
+        let rect = self.storyCollectionView.layoutAttributesForItem(at: IndexPath(row: currentSelected, section: 0))?.frame
+        storyCollectionView.scrollToItem(at: IndexPath(row: currentSelected, section: 0), at: .right, animated: false)
+        self.storyCollectionView.scrollRectToVisible(rect!, animated: false)
+        self.storyCollectionView.setNeedsLayout()
+    }
+    
     init(profilesModel: ProfilesModel,currentSelected: Int) {
         self.profilesModel = profilesModel
         self.currentSelected = currentSelected
@@ -71,6 +78,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCell.identifier, for: indexPath) as! StoryCell
+        cell.setupLayout(safeAreaTop: self.view.safeAreaInsets.top)
         cell.configure(profile: (profilesModel?.profiles[indexPath.row])!, storyIndex: indexPath.row)
         cell.cellDelegate = self
         self.storyCollectionView.animateCell(cell)
@@ -100,15 +108,10 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         self.storyCollectionView.animateVisibleCells()
     }
     
-    
-    
-    
-    
-
-
 
 }
 

@@ -15,6 +15,7 @@ protocol SegmentedProgressBarDelegate: class {
 
 class SegmentedProgressBar: UIView {
     
+    var topPoint: CGFloat!
     weak var delegate: SegmentedProgressBarDelegate?
     var topColor = UIColor.gray {
         didSet {
@@ -54,10 +55,10 @@ class SegmentedProgressBar: UIView {
     private var hasDoneLayout = false // hacky way to prevent layouting again
     public var currentAnimationIndex = 0
     
-    init(numberOfSegments: Int, duration: TimeInterval = 5.0) {
+    init(numberOfSegments: Int, duration: TimeInterval = 5.0, topPoint: CGFloat) {
         self.duration = duration
         super.init(frame: CGRect.zero)
-        
+        self.topPoint = topPoint
         for _ in 0..<numberOfSegments {
             let segment = Segment()
             addSubview(segment.bottomSegmentView)
@@ -65,6 +66,7 @@ class SegmentedProgressBar: UIView {
             segments.append(segment)
         }
         self.updateColors()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,7 +80,8 @@ class SegmentedProgressBar: UIView {
         }
         let width = (frame.width - (padding * CGFloat(segments.count - 1)) ) / CGFloat(segments.count)
         for (index, segment) in segments.enumerated() {
-            let segFrame = CGRect(x: CGFloat(index) * (width + padding), y: 0, width: width, height: frame.height)
+            
+            let segFrame = CGRect(x: CGFloat(index) * (width + padding), y: topPoint, width: width, height: frame.height)
             segment.bottomSegmentView.frame = segFrame
             segment.topSegmentView.frame = segFrame
             segment.topSegmentView.frame.size.width = 0
