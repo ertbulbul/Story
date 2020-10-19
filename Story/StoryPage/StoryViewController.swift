@@ -78,6 +78,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return UIScreen.main.bounds.size
@@ -88,6 +89,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
             self.storyCollectionView.animateCell(cell)
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -112,7 +114,6 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 extension StoryViewController: StoryCellDelegate {
     
-    //TODO: Cell transition.
     func snapsFinished(storyIndex: Int) {
         if(storyIndex + 1 == profilesModel?.profiles.count){
             dismiss(animated: true, completion: nil)
@@ -123,6 +124,18 @@ extension StoryViewController: StoryCellDelegate {
             self.storyCollectionView.scrollRectToVisible(rect!, animated: true)
             self.storyCollectionView.setNeedsLayout()
             
+        }
+    }
+    
+    func prevStoryTapped(storyIndex: Int) {
+        if(storyIndex - 1 >= 0){
+            let rect = self.storyCollectionView.layoutAttributesForItem(at: IndexPath(row: storyIndex - 1, section: 0))?.frame
+            storyCollectionView.scrollToItem(at: IndexPath(row: storyIndex - 1, section: 0), at: .right, animated: false)
+            self.storyCollectionView.scrollRectToVisible(rect!, animated: true)
+            self.storyCollectionView.setNeedsLayout()
+        }else {
+            dismiss(animated: true, completion: nil)
+
         }
     }
 }

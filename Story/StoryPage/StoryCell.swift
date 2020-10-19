@@ -3,6 +3,7 @@ import Gemini
 
 protocol StoryCellDelegate: class {
     func snapsFinished(storyIndex: Int)
+    func prevStoryTapped(storyIndex: Int)
 }
 
 
@@ -101,6 +102,7 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
                     moveNextStory(withSkip: true)
                 }else{
                     //TODO transition to next cell
+                    cellDelegate?.snapsFinished(storyIndex: storyIndex!)
                 }
                 
             }else if(touchLocation.x < frame.width / 2 && currentPoint.x < frame.width / 2 && !enteredMove){
@@ -108,6 +110,7 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
                     movePreviousStory()
                 }else{
                     //TODO transition to previous cell
+                    cellDelegate?.prevStoryTapped(storyIndex: storyIndex!)
                 }
             }
         }

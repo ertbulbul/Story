@@ -56,7 +56,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         DispatchQueue.main.async { [self] in
-            let storyViewController = StoryViewController.init(profilesModel: profilesModel!, currentSelected: 0)
+            let storyViewController = StoryViewController.init(profilesModel: profilesModel!, currentSelected: indexPath.row)
             storyViewController.modalPresentationStyle = .fullScreen
             self.present(storyViewController, animated: true, completion: nil)
             
