@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  Story
-//
-//  Created by Onur Can Avcı on 17.10.2020.
-//
+
 
 import UIKit
 

@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Story/Pods-Story-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AnimatedCollectionViewLayout/AnimatedCollectionViewLayout.framework
+${BUILT_PRODUCTS_DIR}/Gemini/Gemini.framework
+${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework

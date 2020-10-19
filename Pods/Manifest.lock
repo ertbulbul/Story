@@ -1,0 +1,24 @@
+PODS:
+  - AnimatedCollectionViewLayout (1.1.0)
+  - Gemini (1.4.0)
+  - ObjectMapper (4.2.0)
+
+DEPENDENCIES:
+  - AnimatedCollectionViewLayout
+  - Gemini
+  - ObjectMapper
+
+SPEC REPOS:
+  trunk:
+    - AnimatedCollectionViewLayout
+    - Gemini
+    - ObjectMapper
+
+SPEC CHECKSUMS:
+  AnimatedCollectionViewLayout: 0c1a38c4be115c525c887be183fc91ef65737c5d
+  Gemini: 4ad915cca8805577fe3021e02feeca2b77dcdbfc
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+
+PODFILE CHECKSUM: fa78636ccb5d93da7a99a609404db645f3ad8344
+
+COCOAPODS: 1.9.3

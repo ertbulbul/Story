@@ -1,0 +1,131 @@
+{
+    "profiles" : [
+        {
+            "username" : "Obradovic",
+            "user_pp" : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQgU1MHAav2DAzytajZK7fgTAc7Vf_USjmuAA&usqp=CAU",
+            "stories" : [
+                {
+                  "story_id" : "1",
+                  "story_time": "5dk önce",
+                  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2xXOht4Be5UM6POHeuhQ2oESxDEvX5jWeIA&usqp=CAU",
+                  "content_type" : 0,
+                 
+                },
+                {
+                  "story_id" : "2",
+                  "story_time": "9dk önce",
+                  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRg-zD8DxVzbzDdik__FCDjPaEpqJMAnGw0jg&usqp=CAU",
+                  "content_type" : 0,
+                  
+
+                },
+                {
+                  "story_id" : "3",
+                  "story_time": "18dk önce",
+                  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSFuXDcEo6k-Skg7opVknIs1AbP-wk5OzFqzA&usqp=CAU",
+                  "content_type" : 0,
+                 
+                },
+                {
+                  "story_id" : "4",
+                  "username": "muhittin",
+                  "story_time": "2saat önce",
+                  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR1b-fkN7grqFmgMT-m8Bj_Tq-TEcVl7kbb6Q&usqp=CAU",
+                  "content_type" : 0,
+                  
+                },
+                {
+                  "story_id" : "5",
+                  "username": "muhittin",
+                  "story_time": "2saat önce",
+                  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHnVdAooE8mpsZTYwBunR67IMk5b80ElyaDg&usqp=CAU",
+                  "content_type" : 0,
+                  
+                }
+            
+            ]
+        },
+        {
+            "username": "Ali Koç",
+            "user_pp" : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGJDY1Dd-g_jopW10unoCtUULhRNNonR2e-A&usqp=CAU",
+            "stories" : [
+              {
+                "story_id" : "6",
+                "story_time": "5dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRXYuY00WUeGKbIwHofUHxXi3qVmbTAtBPizg&usqp=CAU",
+                "content_type" : 0,
+                
+              },
+              {
+                "story_id" : "7",
+                "story_time": "9dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT5X86B31mQ1BNVHtInZ79__GfhXRDThpUK4A&usqp=CAU",
+                "content_type" : 0,
+              },
+              {
+                "story_id" : "8",
+                "story_time": "5dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg95Q3AE2jar-1sTkzEkpygo9pcl-wok8qtQ&usqp=CAU",
+                "content_type" : 0,
+                
+              },
+              {
+                "story_id" : "9",
+                "story_time": "9dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2oKWcHM6A38DA_sjxyZo7CeAalrxqn0HqpQ&usqp=CAU",
+                "content_type" : 0,
+              }
+            ]
+        },
+        {
+            "username": "Alex De Souza",
+            "user_pp" : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2hvDOEoZz5PyO5Hr8-PQ14oUzkt-QCj0WxA&usqp=CAU",
+            "stories" : [
+              {
+                "story_id" : "10",
+                "story_time": "5dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREJFqyd6J9LvXKJWGpz2lLsvo-ZKo_iLjgiQ&usqp=CAU",
+                "content_type" : 0,
+                
+              },
+              {
+                "story_id" : "11",
+                "story_time": "5dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3q9vJRL2J-yWyLYUcXVPnEkqh6Zyej-Ukzw&usqp=CAU",
+                "content_type" : 0,
+                
+              },
+              {
+                "story_id" : "12",
+                "story_time": "5dk önce",
+                "url": "https://www.indyturk.com/sites/default/files/styles/1368x911/public/article/main_image/2020/05/05/358021-514846293.jpg?itok=ThguQrCy",
+                "content_type" : 0,
+                
+              }
+              
+            ]
+        },
+        {
+            "username": "Aykut Kocaman",
+            "user_pp" : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHjn0jlo43a5kpNNDtuw_71QvfrNJv5Sl-vA&usqp=CAU",
+            "stories" : [
+              {
+                "story_id" : "13",
+                "story_time": "5dk önce",
+                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRasY7hNXhCDq-kotchVpMhSvf-ef8gcRoTCA&usqp=CAU",
+                "content_type" : 0,
+                
+              }
+              
+            ]
+        }
+        
+    ]
+}
+    
+    
+  
+    
+    
+  
+
