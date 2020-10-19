@@ -224,7 +224,8 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
     
     func segmentedProgressBarFinished() {
         cellDelegate?.snapsFinished(storyIndex: storyIndex!)
-    
+        prepareForReuse()
+        
     }
 
 }

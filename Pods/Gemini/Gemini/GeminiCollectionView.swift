@@ -73,6 +73,7 @@ public final class GeminiCollectionView: UICollectionView {
         // Needs set anchor point before setting transform
         cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: easingRatio))
         cell.layer.transform = model.transform(withParentFrame: frame, cellFrame: convertedFrame)
+        //TODO
     }
 
     private func updateScrollDirection(with layout: UICollectionViewLayout) {

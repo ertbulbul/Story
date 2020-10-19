@@ -20,12 +20,14 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         cv.backgroundColor = .black
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
+        cv.contentSize = UIScreen.main.bounds.size
         cv.register(StoryCell.self, forCellWithReuseIdentifier:StoryCell.identifier)
         cv.isPagingEnabled = true
         cv.isPrefetchingEnabled = false
+        
         cv.gemini
             .cubeAnimation()
-            .cubeDegree(90)
+            .cubeDegree(120)
         return cv
     }()
     
@@ -45,6 +47,8 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         self.view.backgroundColor = .black
         self.view.addSubview(storyCollectionView)
+        
+        
         
         _ = storyCollectionView.anchor(nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: UIScreen.main.bounds.width, heightConstant: UIScreen.main.bounds.height)
         
@@ -72,6 +76,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         cell.configure(profile: (profilesModel?.profiles[indexPath.row])!, storyIndex: indexPath.row)
         cell.cellDelegate = self
         self.storyCollectionView.animateCell(cell)
+        
         return cell
     }
     
@@ -80,9 +85,27 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         return UIScreen.main.bounds.size
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? StoryCell {
+            self.storyCollectionView.animateCell(cell)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
         self.storyCollectionView.animateVisibleCells()
     }
+    
+    
+    
     
     
 
@@ -97,22 +120,14 @@ extension StoryViewController: StoryCellDelegate {
         if(storyIndex + 1 == profilesModel?.profiles.count){
             dismiss(animated: true, completion: nil)
         }else {
-//            let i = IndexPath(item: 1, section: 0)
-//            storyCollectionView.reloadData()
-//            storyCollectionView.scrollToItem(at: i, at: .right, animated: true)
-//
-//            storyCollectionView.setContentOffset(CGPoint(x: UIScreen.main.bounds.width*CGFloat((storyIndex + 1)), y: 0.0), animated: true)
-//
-//            self.storyCollectionView.setNeedsLayout()
-            //storyCollectionView.reloadData()
-            print("Selected")
-            //storyCollectionView.scrollToItem(at: IndexPath.init(row: storyIndex, section: 0), at: .right, animated: false)
-            
+
             let rect = self.storyCollectionView.layoutAttributesForItem(at: IndexPath(row: storyIndex + 1, section: 0))?.frame
-            storyCollectionView.animateVisibleCells()
+            storyCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: .right, animated: true)
             self.storyCollectionView.scrollRectToVisible(rect!, animated: true)
+            self.storyCollectionView.setNeedsLayout()
             
-            storyCollectionView.reloadData()
+            
+            //storyCollectionView.reloadData()
                 
         }
     }
