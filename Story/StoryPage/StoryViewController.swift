@@ -27,7 +27,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         cv.gemini
             .cubeAnimation()
-            .cubeDegree(120)
+            .cubeDegree(90)
         return cv
     }()
     
@@ -47,8 +47,6 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         self.view.backgroundColor = .black
         self.view.addSubview(storyCollectionView)
-        
-        
         
         _ = storyCollectionView.anchor(nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: UIScreen.main.bounds.width, heightConstant: UIScreen.main.bounds.height)
         
@@ -100,7 +98,6 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
         self.storyCollectionView.animateVisibleCells()
     }
     
@@ -122,13 +119,10 @@ extension StoryViewController: StoryCellDelegate {
         }else {
 
             let rect = self.storyCollectionView.layoutAttributesForItem(at: IndexPath(row: storyIndex + 1, section: 0))?.frame
-            storyCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: .right, animated: true)
+            storyCollectionView.scrollToItem(at: IndexPath(row: storyIndex + 1, section: 0), at: .right, animated: false)
             self.storyCollectionView.scrollRectToVisible(rect!, animated: true)
             self.storyCollectionView.setNeedsLayout()
             
-            
-            //storyCollectionView.reloadData()
-                
         }
     }
 }
