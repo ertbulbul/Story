@@ -150,7 +150,7 @@
 				428F0882253B498400BE7CA4 /* ViewController.swift */,
 				428F0887253B498500BE7CA4 /* Assets.xcassets */,
 				428F08BB253B4DA800BE7CA4 /* StoryPage */,
-				428F08BA253B4D8600BE7CA4 /* MainPage */,
+				428F08BA253B4D8600BE7CA4 /* HomePage */,
 				428F0889253B498500BE7CA4 /* LaunchScreen.storyboard */,
 				428F088C253B498500BE7CA4 /* Info.plist */,
 				428F091A253B9A0700BE7CA4 /* Constants.swift */,
@@ -176,14 +176,14 @@
 			path = StoryUITests;
 			sourceTree = "<group>";
 		};
-		428F08BA253B4D8600BE7CA4 /* MainPage */ = {
+		428F08BA253B4D8600BE7CA4 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
 				428F0905253B571600BE7CA4 /* HomeViewController.swift */,
 				428F090A253B767600BE7CA4 /* StoryGroupCell.swift */,
 				428F091F253B9D1700BE7CA4 /* ProfilesModel.swift */,
 			);
-			path = MainPage;
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 		428F08BB253B4DA800BE7CA4 /* StoryPage */ = {
