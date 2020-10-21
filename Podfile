@@ -5,8 +5,8 @@ target 'Story' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 	pod 'ObjectMapper'
-	pod 'AnimatedCollectionViewLayout'
 	pod 'Gemini'
+	pod 'AlamofireImage', '~> 4.1'
   # Pods for Story
   
   target 'StoryTests' do

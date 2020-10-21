@@ -107,7 +107,6 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
                 if(profile!.snapVisitedCount + 1 < (profile?.stories!.count)!){
                     moveNextStory(withSkip: true)
                 }else{
-                    //TODO transition to next cell
                     cellDelegate?.snapsFinished(storyIndex: storyIndex!)
                 }
                 
@@ -115,7 +114,6 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
                 if(profile!.snapVisitedCount - 1 >= 0){
                     movePreviousStory()
                 }else{
-                    //TODO transition to previous cell
                     cellDelegate?.prevStoryTapped(storyIndex: storyIndex!)
                 }
             }
@@ -156,11 +154,18 @@ class StoryCell: GeminiCell, SegmentedProgressBarDelegate {
         
         self.profile = profile
         self.storyIndex = storyIndex
-        profileImageView.downloaded(from: profile.userPp!, contentMode: .scaleToFill)
+        setImageWithAlamofireImage(imageView: profileImageView, urlString: profile.userPp!)
+        setImageWithAlamofireImage(imageView: snapImageView, urlString: profile.stories![profile.snapVisitedCount].url!)
         snapImageView.downloaded(from: profile.stories![profile.snapVisitedCount].url!)
         setProgressBar(numberOfSegments: profile.stories!.count, currentIndex: profile.snapVisitedCount)
                       
         
+    }
+    
+    func setImageWithAlamofireImage(imageView: UIImageView, urlString: String){
+        if let imageUrl = URL(string: urlString) {
+            imageView.af.setImage(withURL: imageUrl)
+        }
     }
     
     

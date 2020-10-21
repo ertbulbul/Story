@@ -1,10 +1,9 @@
 import UIKit
 import AVFoundation
-import AnimatedCollectionViewLayout
 import ObjectMapper
 import Gemini
 
-class StoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class StoryViewController: UIViewController {
 
     var profilesModel:ProfilesModel?
     var currentSelected:Int = 0
@@ -72,6 +71,13 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+
+}
+
+extension StoryViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (profilesModel?.profiles.count)!
     }
@@ -85,7 +91,6 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -112,7 +117,6 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.storyCollectionView.animateVisibleCells()
     }
     
-
 }
 
 extension StoryViewController: StoryCellDelegate {

@@ -1,12 +1,13 @@
 import UIKit
 import ObjectMapper
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
-    private var collectionView: UICollectionView!
+    private var storyGroupsCollectionView: UICollectionView!
     private var profilesModel: ProfilesModel?
    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .white
         
@@ -15,14 +16,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.itemSize = CGSize(width: Constants.storyPpSize, height: Constants.storyPpSize)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView?.showsHorizontalScrollIndicator = false
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
-        collectionView?.backgroundColor = .white
-        collectionView?.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        storyGroupsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        storyGroupsCollectionView?.showsHorizontalScrollIndicator = false
+        storyGroupsCollectionView?.delegate = self
+        storyGroupsCollectionView?.backgroundColor = .white
+        storyGroupsCollectionView?.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         
-        guard let myCollection = collectionView else {
+        guard let myCollection = storyGroupsCollectionView else {
             return
         }
         
@@ -34,16 +34,31 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.reloadData()
-        collectionView.setNeedsLayout()
+        storyGroupsCollectionView.reloadData()
+        storyGroupsCollectionView.setNeedsLayout()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        collectionView?.frame = CGRect(x: 0, y: 50, width: view.frame.size.width, height: 150).integral
+        storyGroupsCollectionView?.frame = CGRect(x: 0, y: 50, width: view.frame.size.width, height: 150).integral
     }
+      
     
+    func getStories() {
+        
+        if let path = Bundle.main.path(forResource: "story", ofType: "json") {
+            do {
+                let text = try String(contentsOfFile: path, encoding: .utf8)
+                profilesModel = Mapper<ProfilesModel>().map(JSONString: text)
+            } catch {
+                   // handle error
+            }
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -65,17 +80,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    
-    
-    func getStories() {
-        
-        if let path = Bundle.main.path(forResource: "story", ofType: "json") {
-            do {
-                let text = try String(contentsOfFile: path, encoding: .utf8)
-                profilesModel = Mapper<ProfilesModel>().map(JSONString: text)
-            } catch {
-                   // handle error
-            }
-        }
-    }
+   
 }
+

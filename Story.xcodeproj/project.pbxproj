@@ -16,8 +16,8 @@
 		428F0896253B498500BE7CA4 /* StoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F0895253B498500BE7CA4 /* StoryTests.swift */; };
 		428F08A1253B498500BE7CA4 /* StoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F08A0253B498500BE7CA4 /* StoryUITests.swift */; };
 		428F08F1253B533A00BE7CA4 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F08F0253B533A00BE7CA4 /* UIViewExtension.swift */; };
-		428F0906253B571600BE7CA4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F0905253B571600BE7CA4 /* MainViewController.swift */; };
-		428F090B253B767600BE7CA4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F090A253B767600BE7CA4 /* CollectionViewCell.swift */; };
+		428F0906253B571600BE7CA4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F0905253B571600BE7CA4 /* HomeViewController.swift */; };
+		428F090B253B767600BE7CA4 /* StoryGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F090A253B767600BE7CA4 /* StoryGroupCell.swift */; };
 		428F0910253B82DB00BE7CA4 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F090F253B82DB00BE7CA4 /* StoryViewController.swift */; };
 		428F0915253B83F000BE7CA4 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F0914253B83F000BE7CA4 /* UIImageViewExtension.swift */; };
 		428F091B253B9A0700BE7CA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F091A253B9A0700BE7CA4 /* Constants.swift */; };
@@ -63,8 +63,8 @@
 		428F08A0253B498500BE7CA4 /* StoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryUITests.swift; sourceTree = "<group>"; };
 		428F08A2253B498500BE7CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428F08F0253B533A00BE7CA4 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		428F0905253B571600BE7CA4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		428F090A253B767600BE7CA4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		428F0905253B571600BE7CA4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		428F090A253B767600BE7CA4 /* StoryGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryGroupCell.swift; sourceTree = "<group>"; };
 		428F090F253B82DB00BE7CA4 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		428F0914253B83F000BE7CA4 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		428F091A253B9A0700BE7CA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 		428F08BA253B4D8600BE7CA4 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				428F0905253B571600BE7CA4 /* MainViewController.swift */,
-				428F090A253B767600BE7CA4 /* CollectionViewCell.swift */,
+				428F0905253B571600BE7CA4 /* HomeViewController.swift */,
+				428F090A253B767600BE7CA4 /* StoryGroupCell.swift */,
 				428F091F253B9D1700BE7CA4 /* ProfilesModel.swift */,
 			);
 			path = MainPage;
@@ -475,14 +475,14 @@
 			files = (
 				428F08F1253B533A00BE7CA4 /* UIViewExtension.swift in Sources */,
 				428F0883253B498400BE7CA4 /* ViewController.swift in Sources */,
-				428F090B253B767600BE7CA4 /* CollectionViewCell.swift in Sources */,
+				428F090B253B767600BE7CA4 /* StoryGroupCell.swift in Sources */,
 				428F087F253B498400BE7CA4 /* AppDelegate.swift in Sources */,
 				42D538C1253BE6E80006E1F5 /* StoryCell.swift in Sources */,
 				428F0881253B498400BE7CA4 /* SceneDelegate.swift in Sources */,
 				428F0920253B9D1700BE7CA4 /* ProfilesModel.swift in Sources */,
 				428F0910253B82DB00BE7CA4 /* StoryViewController.swift in Sources */,
 				428F0915253B83F000BE7CA4 /* UIImageViewExtension.swift in Sources */,
-				428F0906253B571600BE7CA4 /* MainViewController.swift in Sources */,
+				428F0906253B571600BE7CA4 /* HomeViewController.swift in Sources */,
 				428F091B253B9A0700BE7CA4 /* Constants.swift in Sources */,
 				42D53975253C9BC10006E1F5 /* SegmentedProgressBar.swift in Sources */,
 			);
